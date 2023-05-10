@@ -1,6 +1,8 @@
 import express, {Request,Response} from 'express';
 import mysql2 from 'mysql2/promise';
+import cors from 'cors';
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.get('/', async (req:Request, res:Response) => {
     //Conexao com o banco.
