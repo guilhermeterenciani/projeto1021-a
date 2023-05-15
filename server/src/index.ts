@@ -25,8 +25,8 @@ app.post('/', async (req:Request, res:Response) => {
         database:"test"
     });
     const consulta = 
-        "INSERT INTO pessoas VALUES ('5','Valerim','32')";
-    const result = await banco.query(consulta);
+        "INSERT INTO pessoas VALUES (?,?,?)";
+    const result = await banco.query(consulta,[req.body.id,req.body.nome,req.body.idade]);
     banco.end();
     res.send(result[0]);
 });
