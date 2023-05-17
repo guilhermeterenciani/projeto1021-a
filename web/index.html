@@ -11,6 +11,19 @@
 
     <ul id="pessoas">
     </ul>
+    <!-- Se eu vou fazer um cadastro de pessoas, o que eu devo fazer? -->
+    <!-- Passo 1: preciso criar um formulário -->
+    <!-- Passo 2: Precisamos pegar os dados digitados no forms 
+         quando o usuário clicar no botão de enviar.
+    -->
+    <!-- Passo 3:Usar o FETCH para a API salvar os dados -->
+    <form action="" id="form-cadastro" class="form-cadastro">
+        <input type="text" name="id" id="id">
+        <input type="text" name="nome" id="nome">
+        <input type="text" name="idade" id="idade">
+        <button type="submit">Enviar</button>
+    </form>
+
     <script>
         fetch("http://localhost:3000")
             .then(resposta=>resposta.json())
