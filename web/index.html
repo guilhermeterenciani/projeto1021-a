@@ -28,7 +28,6 @@
         <input type="text" name="id" id="id">
         <input type="text" name="nome" id="nome">
         <input type="text" name="idade" id="idade">
-        <input type="password" name="senha" id="senha">
         <button type="submit">Enviar</button>
     </form>
 
@@ -45,7 +44,29 @@
             })
         let form = document.querySelector("#form-cadastro");
         
-        form.addEventListener('submit',()=>{console.log("Tere lindão!")});
+        form.addEventListener('submit',(event)=>{
+            event.preventDefault();
+            let id = document.querySelector("#id").value;
+            let nome = document.querySelector("#nome").value;
+            let idade = document.querySelector("#idade").value;
+            let pessoa = {
+                id,
+                nome,
+                idade
+            }
+            //console.log(pessoa)
+            fetch("http://localhost:3000",{
+                //Método
+                method: 'POST',
+                //Tipo de dado
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                //Quais são os dados
+                body: JSON.stringify(pessoa)
+            })
+            .then(response=>response.json())
+        });
     </script>
 </body>
 </html>
