@@ -11,6 +11,28 @@
             flex-direction: column;
             width: 50vw;
         }
+        .tabela{
+            border: 1px solid black;
+            min-width: 50vw;
+        }
+        .tabela thead{
+            background-color: #01318ac1;
+            color: white;
+        }
+        .tabela tbody{
+            background-color: #eee;
+        }
+        .tabela, td, th{
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 15px 30px;
+        }
+        tr:nth-child(even){
+            background-color: #f7cdcd73;
+        }
+        body{
+            font-size: 2em;
+        }
     </style>
 </head>
 <body>
@@ -28,6 +50,8 @@
             </tr>
         </thead>
         <tbody>
+            <tr><td>1</td><td>tere</td><td>28</td></tr>
+            <tr><td>1</td><td>tere</td><td>28</td></tr>
             <tr><td>1</td><td>tere</td><td>28</td></tr>
         </tbody>
     </table>
