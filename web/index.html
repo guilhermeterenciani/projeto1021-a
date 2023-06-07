@@ -68,7 +68,8 @@
 
         }
         .excluir:hover{
-            background-color: rgba(216, 12, 12, 0.991);;
+            background-color: rgba(216, 12, 12, 0.991);
+            cursor:pointer;
         }
 
     </style>
@@ -76,16 +77,14 @@
 <body>
     <h1>Listando pessoas</h1>
 
-    <ul id="pessoas">
-    </ul>
-
     <table class="tabela" id="tabela">
         <thead>
             <tr>
-                <th>id</th>
-                <th>nome</th>
-                <th>idade</th>
-                <th>excluir</th>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Alterar</th>
+                <th>Excluir</th>
             </tr>
         </thead>
         <tbody>
@@ -124,12 +123,12 @@
 
 
                     //Adicionando um botão de excluir por linha da tabela
-                    let aAlterar = document.createElement('a')
-                    aAlterar.textContent = "Excluir"
-                    aAlterar.classList.add("excluir")
+                    let aExcluir = document.createElement('a')
+                    aExcluir.textContent = "Excluir"
+                    aExcluir.classList.add("excluir")
 
                     //Adicionando uma ação quando clicar no botão
-                    aAlterar.addEventListener('click',(event)=>{
+                    aExcluir.addEventListener('click',(event)=>{
                         event.preventDefault();
                         fetch("http://localhost:3000"+'/'+item.id,{
                             method:'DELETE'
@@ -140,7 +139,7 @@
                     })
 
                     let tdBotaoAlterar = document.createElement('td')
-                    tdBotaoAlterar.appendChild(aAlterar)
+                    tdBotaoAlterar.appendChild(aExcluir)
                     tr.appendChild(tdBotaoAlterar)
 
                     tabela.appendChild(tr)
