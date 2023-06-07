@@ -177,7 +177,16 @@
                                 nome,
                                 idade
                             }
-                            fetch("http://localhost:3000")
+                            fetch("http://localhost:3000"+"/"+item.id,{
+                                method:"PUT",
+                                headers:{
+                                    'Content-Type':'application/json'
+                                },
+                                body: JSON.stringify(pessoaUpdate)
+                            })
+                            .finally(()=>{
+                                // window.location.reload();
+                            })
                             
                         })
                     })
@@ -195,6 +204,12 @@
         
         form.addEventListener('submit',(event)=>{
             event.preventDefault();
+
+            if(document.querySelector('button').textContent =="Alterar"){
+                return
+            }
+
+
             let id = document.querySelector("#id").value;
             let nome = document.querySelector("#nome").value;
             let idade = document.querySelector("#idade").value;
