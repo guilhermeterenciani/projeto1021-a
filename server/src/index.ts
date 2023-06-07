@@ -38,8 +38,22 @@ app.delete('/:id',async (req:Request, res:Response)=>{
         database:"test"
     });
     const consulta = 
-        "DELETE FROM pessoas WHERE  id = ?";
+        "DELETE FROM pessoas WHERE id = ?";
     const result = await banco.query(consulta,[req.params.id]);
+    banco.end();
+    res.send(result[0]);
+});
+
+app.put('/:id',async (req:Request, res:Response)=>{
+    const banco = await mysql2.createConnection({
+        host:"localhost",
+        user:"test",
+        password:"test",
+        database:"test"
+    });
+    const consulta = 
+        "UPDATE pessoas SET id = ?, nome = ?, idade = ? WHERE id = ?";
+    const result = await banco.query(consulta,[req.body.id,req.body.nome,req.body.idade,req.params.id]);
     banco.end();
     res.send(result[0]);
 });

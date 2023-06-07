@@ -169,9 +169,9 @@
                         let form = document.querySelector('#form-cadastro')
                         form.addEventListener('submit',(event)=>{
                             event.preventDefault();
-                            let id = document.querySelector('#id')
-                            let nome = document.querySelector('#nome')
-                            let idade = document.querySelector('#idade')
+                            let id = document.querySelector('#id').value
+                            let nome = document.querySelector('#nome').value
+                            let idade = document.querySelector('#idade').value
                             let pessoaUpdate = {
                                 id,
                                 nome,
@@ -208,8 +208,6 @@
             if(document.querySelector('button').textContent =="Alterar"){
                 return
             }
-
-
             let id = document.querySelector("#id").value;
             let nome = document.querySelector("#nome").value;
             let idade = document.querySelector("#idade").value;
