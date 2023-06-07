@@ -30,6 +30,19 @@ app.post('/', async (req:Request, res:Response) => {
     banco.end();
     res.send(result[0]);
 });
+app.delete('/:id',async (req:Request, res:Response)=>{
+    const banco = await mysql2.createConnection({
+        host:"localhost",
+        user:"test",
+        password:"test",
+        database:"test"
+    });
+    const consulta = 
+        "DELETE FROM pessoas WHERE  id = ?";
+    const result = await banco.query(consulta,[req.params.id]);
+    banco.end();
+    res.send(result[0]);
+});
 
 app.listen(3000, () => {
     console.log('Server started on port 3000');
