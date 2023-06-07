@@ -140,6 +140,16 @@
 
                     let tdBotaoExcluir = document.createElement('td')
                     tdBotaoExcluir.appendChild(aExcluir)
+
+
+                    let tdBotaoAlterar = document.createElement('td')
+                    let aAlterar = document.createElement('a')
+                    aAlterar.classList.add("alterar")
+                    aAlterar.textContent="Alterar"
+                    tdBotaoAlterar.appendChild(aAlterar)
+
+
+                    tr.appendChild(tdBotaoAlterar)
                     tr.appendChild(tdBotaoExcluir)
 
                     tabela.appendChild(tr)
