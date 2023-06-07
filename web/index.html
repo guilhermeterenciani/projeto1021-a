@@ -60,6 +60,17 @@
             box-sizing: border-box;
             margin-top: 15px;
         }
+        .excluir{
+            background-color: rgba(216, 12, 12, 0.896);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 3px;
+
+        }
+        .excluir:hover{
+            background-color: rgba(216, 12, 12, 0.991);;
+        }
+
     </style>
 </head>
 <body>
@@ -74,6 +85,7 @@
                 <th>id</th>
                 <th>nome</th>
                 <th>idade</th>
+                <th>excluir</th>
             </tr>
         </thead>
         <tbody>
@@ -110,12 +122,28 @@
                     tr.appendChild(tdNome)
                     tr.appendChild(tdIdade)
 
+
+                    //Adicionando um botão de excluir por linha da tabela
+                    let aAlterar = document.createElement('a')
+                    aAlterar.textContent = "Excluir"
+                    aAlterar.classList.add("excluir")
+
+                    //Adicionando uma ação quando clicar no botão
+                    aAlterar.addEventListener('click',(event)=>{
+                        event.preventDefault();
+                        fetch("http://localhost:3000"+'/'+item.id,{
+                            method:'DELETE'
+                        })
+                        .finally(()=>{
+                            // window.location.reload();
+                        })
+                    })
+
+                    let tdBotaoAlterar = document.createElement('td')
+                    tdBotaoAlterar.appendChild(aAlterar)
+                    tr.appendChild(tdBotaoAlterar)
+
                     tabela.appendChild(tr)
-
-
-                    // let li = document.createElement('li');
-                    // li.innerText=`${item.id} ${item.nome}  ${item.idade}`;
-                    // pessoas.appendChild(li)
                 }
             })
         let form = document.querySelector("#form-cadastro");
