@@ -77,9 +77,6 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td>1</td><td>tere</td><td>28</td></tr>
-            <tr><td>1</td><td>tere</td><td>28</td></tr>
-            <tr><td>1</td><td>tere</td><td>28</td></tr>
         </tbody>
     </table>
 
@@ -97,11 +94,28 @@
         fetch("http://localhost:3000")
             .then(resposta=>resposta.json())
             .then((data)=>{
-                let pessoas = document.querySelector('#pessoas');
+                // let pessoas = document.querySelector('#pessoas');
+                let tabela = document.querySelector("#tabela")
                 for(let item of data){
-                    let li = document.createElement('li');
-                    li.innerText=`${item.id} ${item.nome}  ${item.idade}`;
-                    pessoas.appendChild(li)
+                    let tr = document.createElement('tr')
+
+                    let tdId = document.createElement('td')
+                    tdId.textContent = item.id
+                    let tdNome = document.createElement('td')
+                    tdNome.textContent = item.nome
+                    let tdIdade = document.createElement('td')
+                    tdIdade.textContent = item.idade
+
+                    tr.appendChild(tdId)
+                    tr.appendChild(tdNome)
+                    tr.appendChild(tdIdade)
+
+                    tabela.appendChild(tr)
+
+
+                    // let li = document.createElement('li');
+                    // li.innerText=`${item.id} ${item.nome}  ${item.idade}`;
+                    // pessoas.appendChild(li)
                 }
             })
         let form = document.querySelector("#form-cadastro");
