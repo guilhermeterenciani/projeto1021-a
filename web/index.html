@@ -164,6 +164,22 @@
                         document.querySelector("#id").value = item.id
                         document.querySelector("#nome").value = item.nome
                         document.querySelector("#idade").value = item.idade
+                        document.querySelector('button').textContent ="Alterar"
+
+                        let form = document.querySelector('#form-cadastro')
+                        form.addEventListener('submit',(event)=>{
+                            event.preventDefault();
+                            let id = document.querySelector('#id')
+                            let nome = document.querySelector('#nome')
+                            let idade = document.querySelector('#idade')
+                            let pessoaUpdate = {
+                                id,
+                                nome,
+                                idade
+                            }
+                            fetch("http://localhost:3000")
+                            
+                        })
                     })
 
                     tdBotaoAlterar.appendChild(aAlterar)
