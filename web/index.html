@@ -156,6 +156,16 @@
                     let aAlterar = document.createElement('a')
                     aAlterar.classList.add("alterar")
                     aAlterar.textContent="Alterar"
+
+                    aAlterar.addEventListener('click',(event)=>{
+                        event.preventDefault()
+                        // O que precisamos fazer aqui?/
+
+                        document.querySelector("#id").value = item.id
+                        document.querySelector("#nome").value = item.nome
+                        document.querySelector("#idade").value = item.idade
+                    })
+
                     tdBotaoAlterar.appendChild(aAlterar)
 
 
